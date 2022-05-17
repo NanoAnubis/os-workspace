@@ -42,7 +42,7 @@ int main (int argc, char* argv[]) {
 	ssize_t r;
 	uint16_t from;
 	uint8_t len,junk;
-	uint8_t offset = 0;
+	uint16_t offset = 0;
 	while((r = read(fd2,&from,sizeof(from))) > 0){
 		read(fd2,&len,sizeof(len));
 		read(fd2,&junk,sizeof(junk));
@@ -64,7 +64,7 @@ int main (int argc, char* argv[]) {
 		write(fd4,&len,sizeof(len));
 		write(fd4,&junk,sizeof(junk));
 		
-		offset+=len;
+		offset+=(uint16_t)len;
 			
 	}
 
