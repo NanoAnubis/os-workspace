@@ -1,0 +1,3 @@
+wc -l < <(echo -e "b\na\nc")
+read A B < <(echo -e "b\na\nc") ; echo "a: [$A] b: [$B]" kali
+sort < <(cat f) > >(wc -l)
