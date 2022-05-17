@@ -1,0 +1,1 @@
+ps aux | sort -k 5,5 -n | tail -n 1 | tr -s ' ' | cut -d ' ' -f 2,11

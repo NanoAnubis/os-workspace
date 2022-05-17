@@ -1,0 +1,1 @@
+awk '/Array/ {arr=$NF}; /physicaldrive/ {pd=$NF}; /Current Temperature/ {ct=$NF}; /Maximum Temperature/ {mt=$NF;print(arr"-"pd,ct,mt)}' ssa.txt

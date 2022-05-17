@@ -1,0 +1,1 @@
+ps aux | head -n 2 | tail -n 1 | tr -s ' ' | cut -d ' ' -f 11-
