@@ -6,7 +6,6 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <stdint.h>
-#include <endian.h>
 
 int main (int argc, char* argv[]) {
 	
@@ -49,7 +48,7 @@ int main (int argc, char* argv[]) {
 	write(fd2,"uint32_t arrN = ",sizeof("uint32_t arrN = "));
 
 	//printf("%d",arrN);
-	write(fd2,&arrN,sizeof(arrN));
+	fprintf(fd2,&arrN,"%d");
 
 	exit(0);
 }
