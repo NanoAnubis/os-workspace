@@ -30,25 +30,29 @@ int main (int argc, char* argv[]) {
 	struct stat fs;
 	fstat(fd1,&fs);
 	uint32_t arrN = fs.st_size/2;
-	
+
+	dprintf(fd2,"#include<stdint.h>\n");	
 	char str[]="uint16_t arr[]={";
 	write(fd2,&str,sizeof(str));
 
 	uint16_t buff;
 	ssize_t r;
+	read(fd1,&buff,sizeof(buff));
+	dprintf(fd2,"%d",buff);
         while((r = read(fd1,&buff,sizeof(buff))) > 0){
 		//if(write(1,&buff,sizeof(buff))!=r){
                 //        err(1,"Couldn't write to STDOUT");
                 //}
-		write(fd2,&buff,sizeof(buff));
-		write(fd2,", ",sizeof(", "));
+		//write(fd2,&buff,sizeof(buff));
+		//write(fd2,", ",sizeof(", "));
+		dprintf(fd2,",%d",buff);
 	}
 
-	write(fd2,"0}\n",sizeof("}\n"));
+	write(fd2,"};\n",sizeof("};\n"));
 	write(fd2,"uint32_t arrN = ",sizeof("uint32_t arrN = "));
 
 	//printf("%d",arrN);
-	fprintf(fd2,&arrN,"%d");
+	dprintf(fd2,"%d;",arrN);
 
 	exit(0);
 }
