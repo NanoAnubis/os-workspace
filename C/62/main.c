@@ -85,7 +85,7 @@ int main (int argc, char* argv[]) {
 
 		}
 	}
-	if(datav==0x01) {
+	else if(datav==0x01) {
 		struct word data;
 		uint16_t s;
 
